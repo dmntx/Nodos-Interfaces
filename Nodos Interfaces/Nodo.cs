@@ -11,8 +11,14 @@ namespace Nodos_Interfaces
         string getFuc();
         float eval(float x);
     }
-    class NodoHoja : Nodo
+    class NodoCst : Nodo
     {
+        int func;
+
+        public NodoCst(int f)
+        {
+            func = f;
+        }
         public float eval(float x)
         {
             throw new NotImplementedException();
@@ -25,6 +31,12 @@ namespace Nodos_Interfaces
     }
     class NodoVar : Nodo
     {
+        float func;
+
+        public NodoVar(float f)
+        {
+            func = f;
+        }
         public float eval(float x)
         {
             throw new NotImplementedException();
@@ -41,9 +53,27 @@ namespace Nodos_Interfaces
         int no_hijos;
         Nodo der, izq;
 
-        public NodoInterno()
+        public NodoInterno(string f)
         {
-
+            func = f;
+            switch (func){
+                case "+":
+                    no_hijos = 2;
+                    break;
+                case "*":
+                    no_hijos = 2;
+                    break;
+                case "/":
+                    no_hijos = 2;
+                    break;
+                case "-":
+                    no_hijos = 2;
+                    break;
+                case "sqrt":
+                    no_hijos = 1;
+                    break;
+            }
+            
         }
         public float eval(float x)
         {
