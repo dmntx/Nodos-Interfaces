@@ -8,7 +8,7 @@ namespace Nodos_Interfaces
 {
     public interface Nodo
     {
-        string getFuc();
+        string getFunc();
         float eval(float x);
     }
     class NodoCst : Nodo
@@ -24,7 +24,7 @@ namespace Nodos_Interfaces
             throw new NotImplementedException();
         }
 
-        public string getFuc()
+        public string getFunc()
         {
             throw new NotImplementedException();
         }
@@ -42,16 +42,17 @@ namespace Nodos_Interfaces
             throw new NotImplementedException();
         }
 
-        public string getFuc()
+        public string getFunc()
         {
-            throw new NotImplementedException();
+            return Convert.ToString(func);
         }
     }
     class NodoInterno : Nodo
     {
         string func;
+        string funcion;
         int no_hijos;
-        Nodo der, izq;
+        NodoInterno der, izq;
 
         public NodoInterno(string f)
         {
@@ -80,9 +81,18 @@ namespace Nodos_Interfaces
             throw new NotImplementedException();
         }
 
-        public string getFuc()
+        public string getFunc()
         {
-            throw new NotImplementedException();
+            switch (no_hijos)
+            {
+                case 1:
+                    funcion += funcion + '(' + izq.getFunc() + ')';
+                    break;
+                case 2:
+                    funcion += '(' + izq.getFunc() + func + der.getFunc() + ')';
+                    break;
+            }
+        return funcion;
         }
     }
 }
