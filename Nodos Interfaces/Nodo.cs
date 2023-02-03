@@ -9,50 +9,53 @@ namespace Nodos_Interfaces
     public interface Nodo
     {
         string getFunc();
-        float eval(float x);
+        float eval(float[] vec);
     }
     class NodoCst : Nodo
     {
-        int func;
+        float func;
 
-        public NodoCst(int f)
+        public NodoCst(float f)
         {
             func = f;
         }
-        public float eval(float x)
+        public float eval(float[] vec)
         {
-            throw new NotImplementedException();
+            return func;
         }
 
         public string getFunc()
         {
-            throw new NotImplementedException();
+            //Console.Write(func);
+            return Convert.ToString(func);
         }
     }
     class NodoVar : Nodo
     {
-        float func;
+        int func;
 
-        public NodoVar(float f)
+        public NodoVar(int f)
         {
             func = f;
         }
-        public float eval(float x)
+        public float eval(float[] vec)
         {
-            throw new NotImplementedException();
+            return vec[func];
         }
 
         public string getFunc()
         {
-            return Convert.ToString(func);
+            //Console.Write("x" + func);
+            return "x" + Convert.ToString(func);
         }
     }
     class NodoInterno : Nodo
     {
-        string func;
-        string funcion;
+        public string func;
+        public string funcion;
         int no_hijos;
-        NodoInterno der, izq;
+        float res;
+        public Nodo izq, der;
 
         public NodoInterno(string f)
         {
@@ -76,9 +79,32 @@ namespace Nodos_Interfaces
             }
             
         }
-        public float eval(float x)
+        /*public float eval(float[] var)
         {
-            throw new NotImplementedException();
+            return 0;
+        }*/
+        public float eval(float[] x)
+        {
+            switch (func)
+            {
+                case "+" : 
+                    res += izq.eval(x) + der.eval(x);
+                    break;
+                case "*":
+                    res += izq.eval(x) * der.eval(x);
+                    break;
+                case "/":
+                    res += izq.eval(x) / der.eval(x);
+                    break;
+                case "-":
+                    res += izq.eval(x) - der.eval(x);
+                    break;
+                case "sqrt":
+                    res += Convert.ToSingle(Math.Sqrt(izq.eval(x)));
+                    break;
+            }
+            return res;
+            
         }
 
         public string getFunc()
@@ -86,13 +112,14 @@ namespace Nodos_Interfaces
             switch (no_hijos)
             {
                 case 1:
-                    funcion += funcion + '(' + izq.getFunc() + ')';
+                    funcion += func + '(' + izq.getFunc() + ')';
                     break;
                 case 2:
                     funcion += '(' + izq.getFunc() + func + der.getFunc() + ')';
                     break;
             }
-        return funcion;
+            //Console.Write(func);
+            return funcion;
         }
     }
 }
