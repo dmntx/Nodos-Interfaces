@@ -14,9 +14,9 @@ namespace Nodos_Interfaces
     }*/
     public abstract class Nodo
     {
-        protected Nodo izq;
-        protected Nodo der;
-        protected int no_hijos;
+        public Nodo izq;
+        public Nodo der;
+        public int no_hijos;
 
         public abstract string getFunc();
         public abstract float eval(float[] x);

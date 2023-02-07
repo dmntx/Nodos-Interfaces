@@ -9,28 +9,42 @@ namespace Nodos_Interfaces
     class Arbol
     {
         private int profundidad;
-        private int contenoNodos;
+        private int conteoNodos;
 
-        public Nodo[] nodos = new Nodo[15];
+        public Nodo[] nodos;
         public Arbol(int depth)
         {
-
+            profundidad = depth;
+            nodos = new Nodo[depth];
         }
         public string getFunc()
         {
-            throw new NotImplementedException();
+            return nodos[0].getFunc();
         }
         public float eval(float[] x)
         {
-            throw new NotImplementedException();
+            return nodos[0].eval(x);
         }
         public Arbol clonar()
         {
-            throw new NotImplementedException();
+            Nodo newRaiz;
+            return new Arbol(this.profundidad);
+            newRaiz = this.nodos[0].clonar();
+            clonar().insertarNodo(newRaiz, 0);
         }
         public void insertarNodo(Nodo n, int pos)
         {
-            throw new NotImplementedException();
+            this.nodos[pos] = n;
+            this.conteoNodos = this.conteoNodos + 1;
+            if (n.no_hijos == 1)
+            {
+                insertarNodo(n.izq, this.conteoNodos);
+            }
+            if(n.no_hijos == 2)
+            {
+                insertarNodo(n.izq, this.conteoNodos);
+                insertarNodo(n.der, this.conteoNodos);
+            }
         }
     }
 }
