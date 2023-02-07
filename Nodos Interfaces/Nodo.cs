@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace Nodos_Interfaces
 {
-    public interface Nodo
+    /*public interface Nodo
     {
+        
         string getFunc();
         float eval(float[] vec);
+    }*/
+    public abstract class Nodo
+    {
+        protected Nodo izq;
+        protected Nodo der;
+        protected int no_hijos;
+
+        public abstract string getFunc();
+        public abstract float eval(float[] x);
+        public abstract Nodo clonar();
     }
     class NodoCst : Nodo
     {
@@ -19,15 +30,19 @@ namespace Nodos_Interfaces
         {
             func = f;
         }
-        public float eval(float[] vec)
+        public override float eval(float[] vec)
         {
             return func;
         }
 
-        public string getFunc()
+        public override string getFunc()
         {
             //Console.Write(func);
             return Convert.ToString(func);
+        }
+        public override Nodo clonar()
+        {
+            throw new NotImplementedException();
         }
     }
     class NodoVar : Nodo
@@ -37,30 +52,35 @@ namespace Nodos_Interfaces
         public NodoVar(int f)
         {
             func = f;
+            no_hijos = 0;
         }
-        public float eval(float[] vec)
+        public override float eval(float[] vec)
         {
             return vec[func];
         }
 
-        public string getFunc()
+        public override string getFunc()
         {
             //Console.Write("x" + func);
             return "x" + Convert.ToString(func);
+        }
+        public override Nodo clonar()
+        {
+            throw new NotImplementedException();
         }
     }
     class NodoInterno : Nodo
     {
         public string func;
         public string funcion;
-        int no_hijos;
+        //int no_hijos;
         float res;
-        public Nodo izq, der;
+        //public Nodo izq, der;
 
         public NodoInterno(string f)
         {
             func = f;
-            switch (func){
+            switch (func) {
                 case "+":
                     no_hijos = 2;
                     break;
@@ -77,17 +97,17 @@ namespace Nodos_Interfaces
                     no_hijos = 1;
                     break;
             }
-            
+
         }
         /*public float eval(float[] var)
         {
             return 0;
         }*/
-        public float eval(float[] x)
+        public override float eval(float[] x)
         {
             switch (func)
             {
-                case "+" : 
+                case "+":
                     res += izq.eval(x) + der.eval(x);
                     break;
                 case "*":
@@ -104,10 +124,10 @@ namespace Nodos_Interfaces
                     break;
             }
             return res;
-            
+
         }
 
-        public string getFunc()
+        public override string getFunc()
         {
             switch (no_hijos)
             {
@@ -120,6 +140,10 @@ namespace Nodos_Interfaces
             }
             //Console.Write(func);
             return funcion;
+        }
+        public override Nodo clonar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

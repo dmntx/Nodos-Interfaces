@@ -10,6 +10,7 @@ namespace Nodos_Interfaces
     {
         static void Main(string[] args)
         {
+            Arbol arbol1, arbol2, arbol3;
             float[] vector = new float[10];
             NodoInterno n0, n1, n2, n, n4;
             NodoCst n3, n6;
@@ -26,10 +27,10 @@ namespace Nodos_Interfaces
             n0.izq = n1;
             n0.der = n2;
             n1.izq = n3;
-            n1.der = n4;
+            /*n1.der = n4;
             n4.izq = n5;
             n4.der = n6;
-            n2.izq = n7;
+            n2.izq = n7;*/
             vector[0] = 25;
             Console.WriteLine(n0.getFunc());
             Console.WriteLine("Resultado: " + n0.eval(vector));
