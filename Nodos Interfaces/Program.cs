@@ -41,8 +41,11 @@ namespace Nodos_Interfaces
             arbol1.nodos[4].der = arbol1.nodos[6];
             arbol1.nodos[2].izq = arbol1.nodos[7];
 
-            //Console.WriteLine(arbol1.getFunc());
+           // Console.WriteLine(arbol1.getFunc());
             arbol2 = arbol1.clonar();
+            //Console.WriteLine(arbol2.getFunc());
+            //arbol2.nodos[0] = new NodoInterno("-");
+            Console.WriteLine(arbol1.getFunc());
             Console.WriteLine(arbol2.getFunc());
 
             /*tree0.nodes[0].l_child := tree0.nodes[1];
@@ -63,7 +66,7 @@ namespace Nodos_Interfaces
             /*vector[0] = 25;
             Console.WriteLine(n0.getFunc());
             Console.WriteLine("Resultado: " + n0.eval(vector));*/
-       
+
             /*Console.Write(n1.getFunc());
             Console.Write(n2.getFunc());
             Console.Write(n3.getFunc());

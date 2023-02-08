@@ -32,15 +32,17 @@ namespace Nodos_Interfaces
             newRaiz = this.nodos[0].clonar();
             //newRaiz.getFunc();
             //Console.WriteLine(newRaiz.getFunc());
-            insertarNodo(newRaiz, 0);
-            
-            return new Arbol(this.profundidad);
+            //insertarNodo(newRaiz, 0);
+            Arbol arboln = new Arbol(this.profundidad);
+            arboln.nodos[0] = newRaiz;
+            return arboln;
+            //return new Arbol(this.profundidad);
         }
         public void insertarNodo(Nodo n, int pos)
         {
             this.nodos[pos] = n;
             this.conteoNodos = this.conteoNodos + 1;
-            Console.WriteLine(n.no_hijos);
+            
             if (n.no_hijos == 1)
             {
                 insertarNodo(n.izq, this.conteoNodos);
@@ -50,6 +52,7 @@ namespace Nodos_Interfaces
                 insertarNodo(n.izq, this.conteoNodos);
                 insertarNodo(n.der, this.conteoNodos);
             }
+            //Console.Write(n.getFunc());
         }
     }
 }

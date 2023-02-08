@@ -149,14 +149,14 @@ namespace Nodos_Interfaces
             if (no_hijos == 1)
             {
                 //clonar().izq = this.izq;
-                izq = izq.clonar();
+                newNodo.izq = izq.clonar();
             }
             if(no_hijos == 2)
             {
                 /*izq = this.izq.clonar();
                 der = this.der.clonar();*/
-                izq = this.izq.clonar();
-                der = this.der.clonar();
+                newNodo.izq = this.izq.clonar();
+                newNodo.der = this.der.clonar();
                 //return this.izq;
             }
             //newNodo.getFunc();
