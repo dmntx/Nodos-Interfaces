@@ -28,14 +28,19 @@ namespace Nodos_Interfaces
         public Arbol clonar()
         {
             Nodo newRaiz;
-            return new Arbol(this.profundidad);
+            //new Arbol(this.profundidad);
             newRaiz = this.nodos[0].clonar();
-            clonar().insertarNodo(newRaiz, 0);
+            //newRaiz.getFunc();
+            //Console.WriteLine(newRaiz.getFunc());
+            insertarNodo(newRaiz, 0);
+            
+            return new Arbol(this.profundidad);
         }
         public void insertarNodo(Nodo n, int pos)
         {
             this.nodos[pos] = n;
             this.conteoNodos = this.conteoNodos + 1;
+            Console.WriteLine(n.no_hijos);
             if (n.no_hijos == 1)
             {
                 insertarNodo(n.izq, this.conteoNodos);

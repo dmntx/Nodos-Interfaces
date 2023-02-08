@@ -11,10 +11,10 @@ namespace Nodos_Interfaces
         static void Main(string[] args)
         {
             Arbol arbol1, arbol2, arbol3;
-            float[] vector = new float[10];
-            NodoInterno n0, n1, n2, n, n4;
+            //float[] vector = new float[10];
+            /*NodoInterno n0, n1, n2, n, n4;
             NodoCst n3, n6;
-            NodoVar n5, n7;
+            NodoVar n5, n7;*/
             /*n0 = new NodoInterno("+");
             n1 = new NodoInterno("*");
             n2 = new NodoInterno("sqrt");
@@ -41,7 +41,9 @@ namespace Nodos_Interfaces
             arbol1.nodos[4].der = arbol1.nodos[6];
             arbol1.nodos[2].izq = arbol1.nodos[7];
 
-            Console.WriteLine(arbol1.getFunc());
+            //Console.WriteLine(arbol1.getFunc());
+            arbol2 = arbol1.clonar();
+            Console.WriteLine(arbol2.getFunc());
 
             /*tree0.nodes[0].l_child := tree0.nodes[1];
             tree0.nodes[0].r_child := tree0.nodes[2];

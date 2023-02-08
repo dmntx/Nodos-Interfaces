@@ -42,7 +42,7 @@ namespace Nodos_Interfaces
         }
         public override Nodo clonar()
         {
-            throw new NotImplementedException();
+            return new NodoCst(this.func);
         }
     }
     class NodoVar : Nodo
@@ -66,7 +66,7 @@ namespace Nodos_Interfaces
         }
         public override Nodo clonar()
         {
-            throw new NotImplementedException();
+            return new NodoVar(this.func);
         }
     }
     class NodoInterno : Nodo
@@ -143,7 +143,24 @@ namespace Nodos_Interfaces
         }
         public override Nodo clonar()
         {
-            throw new NotImplementedException();
+            NodoInterno newNodo = new NodoInterno(this.func);
+            //return new NodoInterno(this.func);
+            no_hijos = newNodo.no_hijos;
+            if (no_hijos == 1)
+            {
+                //clonar().izq = this.izq;
+                izq = izq.clonar();
+            }
+            if(no_hijos == 2)
+            {
+                /*izq = this.izq.clonar();
+                der = this.der.clonar();*/
+                izq = this.izq.clonar();
+                der = this.der.clonar();
+                //return this.izq;
+            }
+            //newNodo.getFunc();
+            return newNodo;
         }
     }
 }
