@@ -10,6 +10,8 @@ namespace Nodos_Interfaces
     {
         private int profundidad;
         private int conteoNodos;
+        private NodoCreador nodeCreator;
+        private int input_vector_size;
 
         public Nodo[] nodos;
         public Arbol(int depth)
@@ -53,6 +55,15 @@ namespace Nodos_Interfaces
                 insertarNodo(n.der, this.conteoNodos);
             }
             //Console.Write(n.getFunc());
+        }
+        public void init_random_tree()
+        {
+
+        }
+
+        public void create_child_nodes(Nodo n, int curr_depth)
+        {
+
         }
     }
 }
