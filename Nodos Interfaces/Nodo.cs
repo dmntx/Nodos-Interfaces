@@ -29,6 +29,7 @@ namespace Nodos_Interfaces
         public NodoCst(float f)
         {
             func = f;
+            no_hijos = 0;
         }
         public override float eval(float[] vec)
         {
@@ -37,7 +38,7 @@ namespace Nodos_Interfaces
 
         public override string getFunc()
         {
-            //Console.Write(func);
+            //Console.Write(func); //cambiamos el getfunc
             return Convert.ToString(func);
         }
         public override Nodo clonar()

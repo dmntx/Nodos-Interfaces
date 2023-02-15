@@ -23,7 +23,7 @@ namespace Nodos_Interfaces
             n5 = new NodoVar(0);
             n6 = new NodoCst(1);
             n7 = new NodoVar(0);*/
-            arbol1 = new Arbol(10);
+            /*arbol1 = new Arbol(10);
             arbol1.nodos[0] = new NodoInterno("+");
             arbol1.nodos[1] = new NodoInterno("*");
             arbol1.nodos[2] = new NodoInterno("sqrt");
@@ -46,7 +46,7 @@ namespace Nodos_Interfaces
             //Console.WriteLine(arbol2.getFunc());
             //arbol2.nodos[0] = new NodoInterno("-");
             Console.WriteLine(arbol1.getFunc());
-            Console.WriteLine(arbol2.getFunc());
+            Console.WriteLine(arbol2.getFunc());*/
 
             /*tree0.nodes[0].l_child := tree0.nodes[1];
             tree0.nodes[0].r_child := tree0.nodes[2];
@@ -81,8 +81,14 @@ namespace Nodos_Interfaces
             n5.getFunc();
             n6.getFunc();
             n7.getFunc();*/
+            arbol1 = new Arbol(4, 4);
+            arbol1.init_random_tree();
+            Console.WriteLine(arbol1.getFunc());
             Console.ReadLine();
-           
+            Console.ReadLine();
+            Console.ReadLine();
+            Console.ReadLine();
+
         }
     }
 }
