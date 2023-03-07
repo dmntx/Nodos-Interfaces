@@ -81,11 +81,9 @@ namespace Nodos_Interfaces
             n5.getFunc();
             n6.getFunc();
             n7.getFunc();*/
-            arbol1 = new Arbol(4, 4);
+            arbol1 = new Arbol(4, 2);
             arbol1.init_random_tree();
             Console.WriteLine(arbol1.getFunc());
-            Console.ReadLine();
-            Console.ReadLine();
             Console.ReadLine();
             Console.ReadLine();
 

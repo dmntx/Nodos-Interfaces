@@ -37,12 +37,12 @@ namespace Nodos_Interfaces
                 }
                 else
                 {
-                    Aux = new NodoVar(Rand.Next(input_vector_size,10));
+                    Aux = new NodoVar(Rand.Next(input_vector_size));
                 }
             }
             else
             {
-                coin = Rand.Next(0,6);
+                coin = Rand.Next(0,4);
                 //Console.WriteLine(coin);
                 switch (coin)
                 {
@@ -65,7 +65,7 @@ namespace Nodos_Interfaces
                 //return Aux;
             }
             //Aux.getFunc();
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(10);
             return Aux;
         }
     }
