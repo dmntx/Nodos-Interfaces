@@ -16,7 +16,10 @@ namespace Nodos_Interfaces
     {
         public Nodo izq;
         public Nodo der;
+        public Nodo patern;
         public int no_hijos;
+        public int sub_tree;
+        public int depth;
 
         public abstract string getFunc();
         public abstract float eval(float[] x);

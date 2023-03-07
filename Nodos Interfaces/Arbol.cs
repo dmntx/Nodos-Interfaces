@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nodos_Interfaces
 {
-    class Arbol
+    public class Arbol
     {
         private int profundidad;
         private int conteoNodos;
@@ -83,6 +83,14 @@ namespace Nodos_Interfaces
                 create_child_nodes(n.der, curr_depth + 1);
             }
             //return n;
+        }
+        public void update_node_depth(Nodo n, int depth)
+        {
+
+        }
+        public int update_subtree_depth(Nodo n)
+        {
+
         }
     }
 }

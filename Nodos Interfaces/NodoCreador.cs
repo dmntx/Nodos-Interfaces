@@ -69,4 +69,15 @@ namespace Nodos_Interfaces
             return Aux;
         }
     }
+    public class FullNodeRandom : NodoCreador
+    {
+        public FullNodeRandom(int md, int ivs)
+        {
+
+        }
+        public override Nodo NodeFactory(int current_depth)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
