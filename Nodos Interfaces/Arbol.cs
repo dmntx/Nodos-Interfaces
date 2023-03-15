@@ -8,11 +8,12 @@ namespace Nodos_Interfaces
 {
     public class Arbol
     {
-        private int profundidad;
+        public int profundidad;
         public int conteoNodos;
         protected NodoCreador nodeCreator;
-        protected int input_vector_size;
+        public int input_vector_size;
         protected int branch;
+        public int nada = 8;
 
         public Nodo[] nodos;
         public Arbol(int depth, int vect_size)
@@ -33,20 +34,25 @@ namespace Nodos_Interfaces
         public Arbol clonar()
         {
             Nodo newRaiz;
+            Arbol clonar = new Arbol(profundidad, input_vector_size);
             //new Arbol(this.profundidad);
             newRaiz = this.nodos[0].clonar();
             //newRaiz.getFunc();
             //Console.WriteLine(newRaiz.getFunc());
-            insertarNodo(newRaiz, 0);
+            clonar.insert_node_array(newRaiz, 0);
+            //newRaiz.getFunc();
+            clonar.update_node_depth(newRaiz, 0);
+            clonar.update_subtree_depth(newRaiz);
+            //insertarNodo(newRaiz, 0);
            //*Arbol arboln = new Arbol(this.profundidad);
             //arboln.nodos[0] = newRaiz;
             //return null;
-            return new Arbol(this.profundidad, this.input_vector_size);
+            return clonar;
         }
         public void insertarNodo(Nodo n, int pos)
         {
             this.nodos[pos] = n;
-            this.conteoNodos = this.conteoNodos + 1;
+            nada = nada + 1;
             
             if (n.no_hijos == 1)
             {
@@ -65,9 +71,9 @@ namespace Nodos_Interfaces
             nodeCreator = new FullDepthNodoCreator(profundidad, input_vector_size);
             raiz = nodeCreator.NodeFactory(0);
             create_child_nodes(raiz, 1);
-            this.insert_node_array(raiz, 0);
-            this.update_node_depth(raiz, 0);
-            this.update_subtree_depth(raiz);
+            insert_node_array(raiz, 0);
+            update_node_depth(raiz, 0);
+            update_subtree_depth(raiz);
 
         }
 
@@ -109,6 +115,7 @@ namespace Nodos_Interfaces
             if(n.no_hijos == 0)
             {
                 n.sub_tree = 0;
+                branch = 0;
                 return 0;
             }
             else if(n.no_hijos == 1)
@@ -137,7 +144,7 @@ namespace Nodos_Interfaces
         public void insert_node_array(Nodo n, int pos)
         {
             this.nodos[pos] = n;
-            this.conteoNodos = this.conteoNodos + 1;
+            conteoNodos = conteoNodos + 1;
             if(n.no_hijos == 1)
             {
                 insert_node_array(n.izq, this.conteoNodos);

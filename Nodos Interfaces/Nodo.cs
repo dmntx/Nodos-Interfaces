@@ -46,7 +46,11 @@ namespace Nodos_Interfaces
         }
         public override Nodo clonar()
         {
-            return new NodoCst(this.func);
+            NodoCst Aux = new NodoCst(this.func);
+            Aux.no_hijos = this.no_hijos;
+            Aux.depth = this.depth;
+            Aux.sub_tree = this.sub_tree;
+            return Aux;
         }
     }
     class NodoVar : Nodo
@@ -70,7 +74,11 @@ namespace Nodos_Interfaces
         }
         public override Nodo clonar()
         {
-            return new NodoVar(this.func);
+            NodoVar Aux = new NodoVar(this.func);
+            Aux.no_hijos = no_hijos;
+            Aux.depth = depth;
+            Aux.sub_tree = sub_tree;
+            return Aux;
         }
     }
     class NodoInterno : Nodo
@@ -149,18 +157,23 @@ namespace Nodos_Interfaces
         {
             NodoInterno newNodo = new NodoInterno(this.func);
             //return new NodoInterno(this.func);
-            no_hijos = newNodo.no_hijos;
+            newNodo.no_hijos = no_hijos;
+            newNodo.depth = depth;
+            newNodo.sub_tree = sub_tree;
             if (no_hijos == 1)
             {
                 //clonar().izq = this.izq;
                 newNodo.izq = izq.clonar();
+                newNodo.izq.parent = newNodo;
             }
             if(no_hijos == 2)
             {
                 /*izq = this.izq.clonar();
                 der = this.der.clonar();*/
-                newNodo.izq = this.izq.clonar();
-                newNodo.der = this.der.clonar();
+                newNodo.izq = izq.clonar();
+                newNodo.izq.parent =newNodo;
+                newNodo.der = der.clonar();
+                newNodo.der.parent = newNodo;
                 //return this.izq;
             }
             //newNodo.getFunc();

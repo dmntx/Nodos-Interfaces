@@ -8,7 +8,7 @@ namespace Nodos_Interfaces
 {
     public abstract class GeneticOp
     {
-        protected Arbol offspring1, offspring2;
+        public Arbol offspring1, offspring2;
         public abstract void oper(Arbol parent1, Arbol parent2);
     }
 
@@ -42,8 +42,8 @@ namespace Nodos_Interfaces
                 p2.der = n1;
             }
 
-            offspring1.insert_node_array(r1, 0);
-            offspring2.insert_node_array(r2, 0);
+            offspring1.insertarNodo(r1, 0);
+            offspring2.insertarNodo(r2, 0);
             /////////////
             offspring1.update_node_depth(r1, 0);
             offspring2.update_node_depth(r2, 0);
