@@ -12,6 +12,7 @@ namespace Nodos_Interfaces
         protected int input_vector_size;
         protected Nodo Aux = null;
         public abstract Nodo NodeFactory(int current_depth);
+        
     }
 
     public class FullDepthNodoCreator : NodoCreador
@@ -65,6 +66,56 @@ namespace Nodos_Interfaces
                 //return Aux;
             }
             //Aux.getFunc();
+            System.Threading.Thread.Sleep(10);
+            return Aux;
+        }
+    }
+
+    public class RandomDepthNodeCreator : NodoCreador
+    {
+        public RandomDepthNodeCreator(int md, int ivs)
+        {
+            max_depth = md;
+            input_vector_size = ivs;
+        }
+
+        public override Nodo NodeFactory(int current_depth)
+        {
+            int coin;
+            var Random = new Random();
+            if((current_depth == max_depth || Random.Next(-2,2) > 0.5) && current_depth>0){
+                if (Random.Next(-2, 2) > 0.5)
+                {
+                    Aux = new NodoCst(Random.Next(0, 10));
+                }
+                else
+                {
+                    Aux = new NodoVar(Random.Next(input_vector_size));
+                }
+            }
+            else
+            {
+                coin = Random.Next(0, 4);
+                //Console.WriteLine(coin);
+                switch (coin)
+                {
+                    case 0:
+                        Aux = new NodoInterno("+");
+                        break;
+                    case 1:
+                        Aux = new NodoInterno("*");
+                        break;
+                    case 2:
+                        Aux = new NodoInterno("/");
+                        break;
+                    case 3:
+                        Aux = new NodoInterno("-");
+                        break;
+                    case 4:
+                        Aux = new NodoInterno("sqrt");
+                        break;
+                }
+            }
             System.Threading.Thread.Sleep(10);
             return Aux;
         }

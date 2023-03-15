@@ -16,7 +16,7 @@ namespace Nodos_Interfaces
     {
         public Nodo izq;
         public Nodo der;
-        public Nodo patern;
+        public Nodo parent;
         public int no_hijos;
         public int sub_tree;
         public int depth;
