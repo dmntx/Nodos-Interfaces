@@ -14,6 +14,7 @@ namespace Nodos_Interfaces
         public int input_vector_size;
         protected int branch;
         public int nada = 8;
+        public float fitness_value;
 
         public Nodo[] nodos;
         public Arbol(int depth, int vect_size)
@@ -153,6 +154,13 @@ namespace Nodos_Interfaces
                 insert_node_array(n.izq, this.conteoNodos);
                 insert_node_array(n.der, this.conteoNodos);
             }
+        }
+
+        public float fitness_eval()
+        {
+            var Rand = new Random();
+            this.fitness_value = Rand.Next(-1,2);
+            return this.fitness_value;
         }
     }
 }

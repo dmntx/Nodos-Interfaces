@@ -11,7 +11,6 @@ namespace Nodos_Interfaces
         public Arbol offspring1, offspring2;
         public abstract void oper(Arbol parent1, Arbol parent2);
     }
-
     public class SimpleCrossover : GeneticOp
     {
         public void subtree_swap(int nodo1, int nodo2)
@@ -99,4 +98,5 @@ namespace Nodos_Interfaces
 
         }
     }
+
 }

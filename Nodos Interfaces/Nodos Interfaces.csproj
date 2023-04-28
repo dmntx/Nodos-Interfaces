@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Arbol.cs" />
     <Compile Include="Algoritmos.cs" />
+    <Compile Include="Estrategia.cs" />
+    <Compile Include="ProgramaGenetico.cs" />
     <Compile Include="NodoCreador.cs" />
     <Compile Include="Nodo.cs" />
     <Compile Include="Program.cs" />
