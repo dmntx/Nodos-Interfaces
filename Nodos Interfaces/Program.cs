@@ -17,11 +17,14 @@ namespace Nodos_Interfaces
             generations = 100;
             max_trees_depth = 9;
             vector_size = 2;
-
+            SimpleCrossover crossover = new SimpleCrossover();
+            ProgramaGenetico evolutivo;
             BinaryTournament binaryT = new BinaryTournament();
-            FitnessProportional fitnessP = new FitnessProportional();
+            RandomChoice estrategiaRandom = new RandomChoice();
+            GeneticOp crossover_decorado = new Mutation(crossover);
 
-            gp = new ProgramaGenetico(pop_size, generations, max_trees_depth, vector_size, binaryT , "override");
+
+            gp = new ProgramaGenetico(pop_size, generations, max_trees_depth, vector_size, binaryT , crossover_decorado);
             gp.fit();
             /* var
            pop_size, generations, max_trees_depth, vector_size: integer;

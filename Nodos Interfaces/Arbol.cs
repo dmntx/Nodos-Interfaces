@@ -20,7 +20,8 @@ namespace Nodos_Interfaces
         public Arbol(int depth, int vect_size)
         {
             profundidad = depth;
-            int profu = Convert.ToInt32(Math.Pow(2,(profundidad+1)));
+            //int profu = Convert.ToInt32(Math.Pow(2,(profundidad+1)));
+            int profu = 10000;
             nodos = new Nodo[profu];
             input_vector_size = vect_size;
         }

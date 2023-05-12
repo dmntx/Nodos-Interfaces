@@ -8,8 +8,8 @@ namespace Nodos_Interfaces
 {
     public abstract class NodoCreador
     {
-        protected int max_depth;
-        protected int input_vector_size;
+        public int max_depth;
+        public int input_vector_size;
         protected Nodo Aux = null;
         public abstract Nodo NodeFactory(int current_depth);
         
